@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ellison Electronics</title>
+<title>Exotic Electronics</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -53,7 +53,7 @@
 	%>
 
 	<jsp:include page="header.jsp" />
-
+	
 	<div class="text-center"
 		style="color: black; font-size: 14px; font-weight: bold;"><%=message%></div>
 	<div class="text-center" id="message"
@@ -79,7 +79,7 @@
 					<p class="productinfo"><%=description%>..
 					</p>
 					<p class="price">
-						Rs
+						VND
 						<%=product.getProdPrice()%>
 					</p>
 					<form method="post">
