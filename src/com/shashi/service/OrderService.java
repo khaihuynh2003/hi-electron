@@ -23,4 +23,8 @@ public interface OrderService {
 	public List<OrderDetails> getAllOrderDetails(String userEmailId);
 
 	public String shipNow(String orderId, String prodId);
+
+//	public OrderBean getOrderByID(int orderID);
+
+//	void updateOrderPickupStatus(int orderID, boolean isReadyForPickup);
 }

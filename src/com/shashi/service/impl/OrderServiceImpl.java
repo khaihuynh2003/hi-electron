@@ -14,8 +14,10 @@ import com.shashi.beans.TransactionBean;
 import com.shashi.service.OrderService;
 import com.shashi.utility.DBUtil;
 import com.shashi.utility.MailMessage;
+import com.shashi.service.OrderDAO;
 
 public class OrderServiceImpl implements OrderService {
+	private OrderDAO orderDAO = new OrderDAOImpl();
 
 	@Override
 	public String paymentSuccess(String userName, double paidAmount) {
@@ -194,6 +196,30 @@ public class OrderServiceImpl implements OrderService {
 
 		return orderList;
 	}
+	public List<OrderBean> getAllPickupOrders() {
+		List<OrderBean> orderList = new ArrayList<OrderBean>();
+
+		Connection con = DBUtil.provideConnection();
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = con.prepareStatement("select * from orders");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				OrderBean order = new OrderBean(rs.getString("orderid"), rs.getString("prodid"),
+						rs.getInt("quantity"),
+						rs.getDouble("amount"), rs.getInt("readyForPickup"));
+
+				orderList.add(order);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orderList;
+	}
 
 	@Override
 	public List<OrderBean> getOrdersByUserId(String emailId) {
@@ -240,7 +266,10 @@ public class OrderServiceImpl implements OrderService {
 		try {
 
 			ps = con.prepareStatement(
-					"SELECT  p.pid as prodid, o.orderid as orderid, o.shipped as shipped, p.image as image, p.pname as pname, o.quantity as qty, o.amount as amount, t.time as time FROM orders o, product p, transactions t where o.orderid=t.transid and o.orderid = t.transid and p.pid=o.prodid and t.username=?");
+					"SELECT  p.pid as prodid, o.orderid as orderid, o.shipped as shipped, p.image as image," +
+							" p.pname as pname, o.quantity as qty, o.amount as amount, t.time as time FROM orders o," +
+							" product p, transactions t where o.orderid=t.transid and o.orderid = t.transid" +
+							" and p.pid=o.prodid and t.username=?");
 			ps.setString(1, userEmailId);
 			rs = ps.executeQuery();
 
