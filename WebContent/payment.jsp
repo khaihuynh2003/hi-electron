@@ -49,7 +49,7 @@
 				style="border: 2px solid black; border-radius: 10px; background-color: #FFE5CC; padding: 10px;">
 				<div style="font-weight: bold;" class="text-center">
 					<div class="form-group">
-						<img src="images/profile.jpg" alt="Payment Proceed" height="100px" />
+						<img src="images/profile.png" alt="Payment Proceed" height="100px" />
 						<h2 style="color: green;">Credit Card Payment</h2>
 					</div>
 				</div>
@@ -90,7 +90,7 @@
 					<div class="col-md-6 form-group">
 						<label>&nbsp;</label>
 						<button type="submit" class="form-control btn btn-success">
-							Pay :Rs
+							Pay in EUR
 							<%=amount%></button>
 					</div>
 				</div>
