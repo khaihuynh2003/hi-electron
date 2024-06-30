@@ -43,6 +43,8 @@ public class OrderServiceImpl implements OrderService {
 			double amount = new ProductServiceImpl().getProductPrice(item.getProdId()) * item.getQuantity();
 
 			OrderBean order = new OrderBean(transactionId, item.getProdId(), item.getQuantity(), amount);
+			String orderId = order.getOrderId();
+			String productId = order.getProductId();
 
 			ordered = addOrder(order);
 			if (!ordered)
@@ -58,6 +60,9 @@ public class OrderServiceImpl implements OrderService {
 
 			if (!ordered)
 				break;
+			if (pickup==true){
+				updatePickupSelected(orderId, productId);
+			}
 		}
 
 		if (ordered) {
