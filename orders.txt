@@ -1,0 +1,7 @@
+Field	Type	Null	Key	Default	Extra
+orderid	varchar(45)	NO	PRI	NULL	
+prodid	varchar(45)	NO	PRI	NULL	
+quantity	int	YES		NULL	
+amount	decimal(10,2)	YES		NULL	
+shipped	int	NO		0	
+readyForPickup	tinyint(1)	NO		0	

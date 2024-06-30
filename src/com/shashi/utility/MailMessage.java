@@ -9,13 +9,13 @@ public class MailMessage {
 		String htmlTextMessage = "" + "<html>" + "<body>"
 				+ "<h2 style='color:green;'>Welcome to Exotic Electronics</h2>" + "" + "Hi " + name + ","
 				+ "<br><br>Thanks for singing up with Exotic Electronics.<br>"
-				+ "We are glad that you choose us. We invite you to check out our latest collection of new electonics appliances."
+				+ "Thanks for choosing us! We invite you to check out our latest collection of new electronics appliances."
 				+ "<br>We are providing upto 60% OFF on most of the electronic gadgets. So please visit our site and explore the collections."
 				+ "<br><br>Our Online electronics is growing in a larger amount these days and we are in high demand so we thanks all of you for "
 				+ "making us up to that level. We Deliver Product to your house with no extra delivery charges and we also have collection of most of the"
-				+ "branded items.<br><br>As a Welcome gift for our New Customers we are providing additional 10% OFF Upto 500 Rs for the first product purchase. "
-				+ "<br>To avail this offer you only have "
-				+ "to enter the promo code given below.<br><br><br> PROMO CODE: " + "ELLISON500<br><br><br>"
+				+ "branded items.<br><br>As a Welcome gift for our New Customers we are providing additional 10% OFF Upto 400,000 VND for the first product purchase. "
+				+ "<br>To claim this offer, simply "
+				+ "enter the promo code given below during the payment process.<br><br><br> PROMO CODE: " + "WELCOMEPROMO<br><br><br>"
 				+ "Have a good day!<br>" + "" + "</body>" + "</html>";
 		try {
 			JavaMailUtil.sendMail(recipient, subject, htmlTextMessage);

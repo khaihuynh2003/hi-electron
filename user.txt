@@ -1,0 +1,7 @@
+Field	Type	Null	Key	Default	Extra
+email	varchar(60)	NO	PRI	NULL	
+name	varchar(30)	YES		NULL	
+mobile	bigint	YES		NULL	
+address	varchar(250)	YES		NULL	
+pincode	int	YES		NULL	
+password	varchar(20)	YES		NULL	
