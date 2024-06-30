@@ -17,13 +17,13 @@ import com.shashi.utility.MailMessage;
 import com.shashi.service.OrderDAO;
 
 public class OrderServiceImpl implements OrderService {
-	private OrderDAO orderDAO = new OrderDAOImpl();
+//	private OrderDAO orderDAO = new OrderDAOImpl();
 
 	@Override
-	public String paymentSuccess(String userName, double paidAmount) {
+	public String paymentSuccess(String userName, double paidAmount, boolean pickup) {
 		String status = "Order Placement Failed!";
 
-		List<CartBean> cartItems = new ArrayList<CartBean>();
+		List<CartBean> cartItems;
 		cartItems = new CartServiceImpl().getAllCartItems(userName);
 
 		if (cartItems.size() == 0)
@@ -34,9 +34,9 @@ public class OrderServiceImpl implements OrderService {
 
 		String transactionId = transaction.getTransactionId();
 
-		// System.out.println("Transaction: "+transaction.getTransactionId()+"
-		// "+transaction.getTransAmount()+" "+transaction.getUserName()+"
-		// "+transaction.getTransDateTime());
+//		 System.out.println("Transaction: "+transaction.getTransactionId()+"
+//		 "+transaction.getTransAmount()+" "+transaction.getUserName()+"
+//		 "+transaction.getTransDateTime());
 
 		for (CartBean item : cartItems) {
 
@@ -70,6 +70,10 @@ public class OrderServiceImpl implements OrderService {
 				status = "Order Placed Successfully!";
 			}
 		}
+//		OrderBean order = new OrderBean(transactionId, )
+//		if (pickup) {
+//			updatePickupSelected();
+//		}
 
 		return status;
 	}
@@ -313,7 +317,7 @@ public class OrderServiceImpl implements OrderService {
 			int k = ps.executeUpdate();
 
 			if (k > 0) {
-				status = "Order Has been shipped successfully!!";
+				status = "Order has been shipped successfully!";
 			}
 
 		} catch (SQLException e) {
@@ -325,6 +329,19 @@ public class OrderServiceImpl implements OrderService {
 		DBUtil.closeConnection(ps);
 
 		return status;
+	}
+	@Override
+	public void updatePickupSelected(String orderId, String prodId){
+		Connection con = DBUtil.provideConnection();
+		PreparedStatement ps = null;
+
+		try {
+			ps = con.prepareStatement("update orders set pickupSelected=1 where orderid=? and prodid=? and pickupSelected=0");
+			ps.setString(1, orderId);
+			ps.setString(2, prodId);
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 }
