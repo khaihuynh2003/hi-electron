@@ -1,0 +1,5 @@
+Field	Type	Null	Key	Default	Extra
+transid	varchar(45)	NO	PRI	NULL	
+username	varchar(60)	YES	MUL	NULL	
+time	datetime	YES		NULL	
+amount	decimal(10,2)	YES		NULL	

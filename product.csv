@@ -1,0 +1,8 @@
+Field,Type,Null,Key,Default,Extra
+pid,varchar(45),NO,PRI,NULL,
+pname,varchar(100),YES,,NULL,
+ptype,varchar(20),YES,,NULL,
+pinfo,varchar(350),YES,,NULL,
+pprice,"decimal(12,2)",YES,,NULL,
+pquantity,int,YES,,NULL,
+image,longblob,YES,,NULL,
