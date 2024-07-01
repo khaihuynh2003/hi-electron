@@ -90,8 +90,8 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-md-12 form-group">
+                        <input type="checkbox" id="pickUp" name="pickUp" value="true">
                         <input type="hidden" name="pickUp" value="false">
-                        <input type="checkbox" id="pickUp" name="pickUp" value="false">
                         <label for="pickUp"> Pick up at store</label>
                     </div>
                 </div>
