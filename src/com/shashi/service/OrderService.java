@@ -8,7 +8,7 @@ import com.shashi.beans.TransactionBean;
 
 public interface OrderService {
 
-	public String paymentSuccess(String userName, double paidAmount, boolean pickup);
+	public String paymentSuccess(String userName, double paidAmount, int pickup);
 
 	public boolean addOrder(OrderBean order);
 
@@ -24,7 +24,7 @@ public interface OrderService {
 
 	public String shipNow(String orderId, String prodId);
 
-	public void updatePickupSelected(String orderId, String prodId);
+	public boolean updatePickupSelected(String orderId, String prodId);
 
 //	public OrderBean getOrderByID(int orderID);
 

@@ -31,7 +31,7 @@ public class MailMessage {
 		String htmlTextMessage = "<html>" + "  <body>" + "    <p>" + "      Hey " + name + ",<br/><br/>"
 				+ "      We are glad that you shop with Exotic Electronics!" + "      <br/><br/>"
 				+ "      Your order has been placed successfully and under process to be shipped."
-				+ "<br/><h6>Please Note that this is a demo projet Email and you have not made any real transaction with us till now!</h6>"
+				+ "<br/><h6>Please Note that this is a demo project Email and you have not made any real transaction with us till now!</h6>"
 				+ "      <br/>" + "      Here is Your Transaction Details:<br/>" + "      <br/>"
 				+ "      <font style=\"color:red;font-weight:bold;\">Order Id:</font>"
 				+ "      <font style=\"color:green;font-weight:bold;\">" + transId + "</font><br/>" + "      <br/>"

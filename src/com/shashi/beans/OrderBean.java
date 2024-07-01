@@ -11,7 +11,7 @@ public class OrderBean implements Serializable {
 	private int quantity;
 	private Double amount;
 	private int shipped;
-	private boolean readyForPickup;
+	private int pickup;
 	private String customerEmail;
 
 	public OrderBean() {
@@ -27,6 +27,17 @@ public class OrderBean implements Serializable {
 		this.shipped = 0;
 	}
 
+	public OrderBean(String orderId, String transactionId, String productId, int quantity, int pickup,
+					 double amount, String customerEmail){
+		super();
+		this.orderId = orderId;
+		this.transactionId = transactionId;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.pickup = pickup;
+		this.amount = amount;
+		this.customerEmail = customerEmail;
+	}
 	public OrderBean(String transactionId, String productId, int quantity, Double amount, int shipped) {
 		super();
 		this.transactionId = transactionId;
@@ -35,27 +46,29 @@ public class OrderBean implements Serializable {
 		this.amount = amount;
 		this.shipped = shipped;
 	}
-	public OrderBean(String orderId, String transactionId, String productId, int quantity, boolean readyForPickup,
+	public OrderBean(String orderId, String transactionId, String productId, int quantity, int pickup,
 					 double amount){
 		super();
 		this.orderId = orderId;
 		this.transactionId = transactionId;
 		this.productId = productId;
 		this.quantity = quantity;
-		this.readyForPickup = readyForPickup;
+		this.pickup = pickup;
 		this.amount = amount;
 	}
-	public OrderBean(String orderId, String transactionId, String productId, int quantity, boolean readyForPickup,
-					 double amount, String customerEmail){
+	public OrderBean(String orderId, String transactionId, String productId, int quantity, double amount,
+					 int shipped, int pickup, String customerEmail){
 		super();
 		this.orderId = orderId;
 		this.transactionId = transactionId;
 		this.productId = productId;
 		this.quantity = quantity;
-		this.readyForPickup = readyForPickup;
 		this.amount = amount;
+		this.shipped = shipped;
+		this.pickup = pickup;
 		this.customerEmail = customerEmail;
 	}
+
 
 	public String getTransactionId() {
 		return transactionId;
@@ -85,30 +98,32 @@ public class OrderBean implements Serializable {
 		return amount;
 	}
 
-	public String getOrderId() { return orderId;}
-
-	public boolean getPickupStatus() {return readyForPickup; }
-
-	public void setReadyForPickup(boolean readyForPickup){
-		this.readyForPickup = readyForPickup;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
+
+	public String getOrderId() { return orderId; }
 
 	public String getCustomerEmail(){
 		return customerEmail;
 	}
+
 	public void setCustomerEmail(String customerEmail){
 		this.customerEmail = customerEmail;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
 	}
 
 	public int getShipped() {
 		return shipped;
 	}
+
 	public void setShipped(int shipped) {
 		this.shipped = shipped;
+	}
+
+	public int getPickup() {return pickup; }
+
+	public void setPickup(int pickup){
+		this.pickup = pickup;
 	}
 
 }

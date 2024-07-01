@@ -18,6 +18,7 @@ public class OrderDetails implements Serializable {
 	private int shipped;
 	private Timestamp time;
 	private InputStream prodImage;
+	private int pickup;
 
 	public String getOrderId() {
 		return orderId;
@@ -83,4 +84,9 @@ public class OrderDetails implements Serializable {
 		this.shipped = shipped;
 	}
 
+	public int getPickup() {return pickup; }
+
+	public void setPickup(int pickup){
+		this.pickup = pickup;
+	}
 }

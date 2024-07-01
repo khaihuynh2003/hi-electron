@@ -14,11 +14,10 @@ import com.shashi.beans.TransactionBean;
 import com.shashi.service.OrderService;
 import com.shashi.utility.DBUtil;
 import com.shashi.utility.MailMessage;
-import com.shashi.service.OrderDAO;
 
 public class OrderServiceImpl implements OrderService {
 	@Override
-	public String paymentSuccess(String userName, double paidAmount, boolean pickup) {
+	public String paymentSuccess(String userName, double paidAmount, int pickup) {
 		String status = "Order Placement Failed!";
 
 		List<CartBean> cartItems;
@@ -58,8 +57,9 @@ public class OrderServiceImpl implements OrderService {
 
 			if (!ordered)
 				break;
-			if (pickup==true){
-				updatePickupSelected(orderId, productId);
+			if (pickup == 1){
+				boolean test = updatePickupSelected(order.getTransactionId(), productId);
+//				System.out.println(test + " abc");
 			}
 		}
 
@@ -90,13 +90,14 @@ public class OrderServiceImpl implements OrderService {
 		PreparedStatement ps = null;
 
 		try {
-			ps = con.prepareStatement("insert into orders values(?,?,?,?,?)");
+			ps = con.prepareStatement("insert into orders values(?,?,?,?,?,?)");
 
-			ps.setString(1, order.getTransactionId());
-			ps.setString(2, order.getProductId());
-			ps.setInt(3, order.getQuantity());
-			ps.setDouble(4, order.getAmount());
-			ps.setInt(5, 0);
+			ps.setString(1, order.getTransactionId()); // col: orderid
+			ps.setString(2, order.getProductId());	 // col: prodid
+			ps.setInt(3, order.getQuantity());		 // col: quantity
+			ps.setDouble(4, order.getAmount());		 // col: amount
+			ps.setInt(5, 0); 						 // col: shipped
+			ps.setInt(6, 0);						 // col: pickup
 
 			int k = ps.executeUpdate();
 
@@ -218,7 +219,7 @@ public class OrderServiceImpl implements OrderService {
 			while (rs.next()) {
 				OrderBean order = new OrderBean(rs.getString("orderid"), rs.getString("prodid"),
 						rs.getInt("quantity"),
-						rs.getDouble("amount"), rs.getInt("readyForPickup"));
+						rs.getDouble("amount"), rs.getInt("pickup"));
 
 				orderList.add(order);
 			}
@@ -274,7 +275,8 @@ public class OrderServiceImpl implements OrderService {
 
 			ps = con.prepareStatement(
 					"SELECT  p.pid as prodid, o.orderid as orderid, o.shipped as shipped, p.image as image," +
-							" p.pname as pname, o.quantity as qty, o.amount as amount, t.time as time FROM orders o," +
+							" p.pname as pname, o.quantity as qty, o.amount as amount, t.time as time, o.pickup as pickup" +
+							" FROM orders o," +
 							" product p, transactions t where o.orderid=t.transid and o.orderid = t.transid" +
 							" and p.pid=o.prodid and t.username=?");
 			ps.setString(1, userEmailId);
@@ -291,6 +293,8 @@ public class OrderServiceImpl implements OrderService {
 				order.setTime(rs.getTimestamp("time"));
 				order.setProductId(rs.getString("prodid"));
 				order.setShipped(rs.getInt("shipped"));
+				order.setPickup(rs.getInt("pickup"));
+//				...
 				orderList.add(order);
 
 			}
@@ -334,17 +338,26 @@ public class OrderServiceImpl implements OrderService {
 		return status;
 	}
 	@Override
-	public void updatePickupSelected(String orderId, String prodId){
+	public boolean updatePickupSelected(String orderId, String prodId){
+		boolean flag = false;
 		Connection con = DBUtil.provideConnection();
 		PreparedStatement ps = null;
 
 		try {
-			ps = con.prepareStatement("update orders set pickupSelected=1 where orderid=? and prodid=? and pickupSelected=0");
+			ps = con.prepareStatement("update orders set pickup = 1 where orderid=? and prodid=? and pickup=0");
 			ps.setString(1, orderId);
 			ps.setString(2, prodId);
-		} catch (SQLException e){
+
+			int k = ps.executeUpdate();
+			System.out.println("test: " + k);
+
+			if (k > 0)
+				flag = true;
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return flag;
 	}
 
 }
