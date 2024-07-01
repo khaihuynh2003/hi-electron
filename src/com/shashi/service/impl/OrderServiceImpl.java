@@ -17,7 +17,6 @@ import com.shashi.utility.MailMessage;
 import com.shashi.service.OrderDAO;
 
 public class OrderServiceImpl implements OrderService {
-	private OrderDAO orderDAO = new OrderDAOImpl();
 
 	@Override
 	public String paymentSuccess(String userName, double paidAmount) {
