@@ -46,7 +46,7 @@
 				<nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
 					<ol class="breadcrumb mb-0">
 						<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-						<li class="breadcrumb-item"><a href="profile.jsp">User
+						<li class="breadcrumb-item"><a href="userProfile.jsp">User
 								Profile</a></li>
 					</ol>
 				</nav>

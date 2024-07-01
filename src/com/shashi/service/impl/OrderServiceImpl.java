@@ -58,8 +58,8 @@ public class OrderServiceImpl implements OrderService {
 			if (!ordered)
 				break;
 			if (pickup == 1){
-				boolean test = updatePickupSelected(order.getTransactionId(), productId);
-//				System.out.println(test + " abc");
+				boolean test = updatePickup(order.getTransactionId(), productId);
+				System.out.println(test + " abc");
 			}
 		}
 
@@ -337,8 +337,9 @@ public class OrderServiceImpl implements OrderService {
 
 		return status;
 	}
+	
 	@Override
-	public boolean updatePickupSelected(String orderId, String prodId){
+	public boolean updatePickup(String orderId, String prodId){
 		boolean flag = false;
 		Connection con = DBUtil.provideConnection();
 		PreparedStatement ps = null;

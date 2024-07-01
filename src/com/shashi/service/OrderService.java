@@ -24,7 +24,7 @@ public interface OrderService {
 
 	public String shipNow(String orderId, String prodId);
 
-	public boolean updatePickupSelected(String orderId, String prodId);
+	public boolean updatePickup(String orderId, String prodId);
 
 //	public OrderBean getOrderByID(int orderID);
 
