@@ -72,7 +72,8 @@
 						<td><%=order.getQty()%></td>
 						<td><%=order.getAmount()%></td>
 						<td><%=order.getTime()%></td>
-						<td class="text-success"><%=order.getShipped() == 0 ? "ORDER_PLACED" : "ORDER_SHIPPED"%></td>
+						<td class="text-success"><%=(order.getShipped() == 0) ? "ORDER_PLACED" :
+								((order.getPickup() == 1) ? "PICKUP_READY" : "ORDER_SHIPPED")%></td>
 					</tr>
 
 					<%
