@@ -13,7 +13,7 @@ public class MailMessage {
 				+ "<br>We are providing upto 60% OFF on most of the electronic gadgets. So please visit our site and explore the collections."
 				+ "<br><br>Our Online electronics is growing in a larger amount these days and we are in high demand so we thanks all of you for "
 				+ "making us up to that level. We Deliver Product to your house with no extra delivery charges and we also have collection of most of the"
-				+ "branded items.<br><br>As a Welcome gift for our New Customers we are providing additional 10% OFF Upto 400,000 VND for the first product purchase. "
+				+ "branded items.<br><br>As a Welcome gift for our New Customers we are providing additional 10% OFF up to 50 EUR for the first product purchase. "
 				+ "<br>To claim this offer, simply "
 				+ "enter the promo code given below during the payment process.<br><br><br> PROMO CODE: " + "WELCOMEPROMO<br><br><br>"
 				+ "Have a good day!<br>" + "" + "</body>" + "</html>";
@@ -35,7 +35,7 @@ public class MailMessage {
 				+ "      <br/>" + "      Here is Your Transaction Details:<br/>" + "      <br/>"
 				+ "      <font style=\"color:red;font-weight:bold;\">Order Id:</font>"
 				+ "      <font style=\"color:green;font-weight:bold;\">" + transId + "</font><br/>" + "      <br/>"
-				+ "      <font style=\"color:red;font-weight:bold;\">Amount Paid:</font> <font style=\"color:green;font-weight:bold;\">"
+				+ "      <font style=\"color:red;font-weight:bold;\">Amount Paid: €</font> <font style=\"color:green;font-weight:bold;\">"
 				+ transAmount + "</font>" + "      <br/><br/>" + "      Thanks for shopping with us!<br/><br/>"
 				+ "      Come Shop Again! <br/<br/> <font style=\"color:green;font-weight:bold;\">Exotic Electronics.</font>"
 				+ "    </p>" + "    " + "  </body>" + "</html>";
@@ -57,7 +57,7 @@ public class MailMessage {
 				+ "      <br/>" + "      Here is Your Transaction Details:<br/>" + "      <br/>"
 				+ "      <font style=\"color:red;font-weight:bold;\">Order Id:</font>"
 				+ "      <font style=\"color:green;font-weight:bold;\">" + transId + "</font><br/>" + "      <br/>"
-				+ "      <font style=\"color:red;font-weight:bold;\">Amount Paid:</font> <font style=\"color:green;font-weight:bold;\">"
+				+ "      <font style=\"color:red;font-weight:bold;\">Amount Paid: €</font> <font style=\"color:green;font-weight:bold;\">"
 				+ transAmount + "</font>" + "      <br/><br/>" + "      Thanks for shopping with us!<br/><br/>"
 				+ "      Come Shop Again! <br/<br/> <font style=\"color:green;font-weight:bold;\">Exotic Electronics.</font>"
 				+ "    </p>" + "    " + "  </body>" + "</html>";
