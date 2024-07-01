@@ -158,7 +158,7 @@
 			</tbody>
 		</table>
 	</div>
-	<!-- ENd of Product Items List -->
+	<!-- End of Product Items List -->
 
 
 	<%@ include file="footer.html"%>

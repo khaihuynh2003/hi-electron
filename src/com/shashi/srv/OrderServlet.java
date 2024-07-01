@@ -26,6 +26,7 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String userName = (String) session.getAttribute("username");
 		String password = (String) session.getAttribute("password");
+		boolean test = false;
 
 		if (userName == null || password == null) {
 
