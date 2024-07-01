@@ -82,9 +82,21 @@
 						<td><%=userAddr%></td>
 						<td><%=quantity%></td>
 						<td>READY_TO_SHIP</td>
-						<td><a
-							href="ShipmentServlet?orderid=<%=order.getTransactionId()%>&amount=<%=order.getAmount()%>&userid=<%=userId%>&prodid=<%=order.getProductId()%>"
-							class="btn btn-success">SHIP NOW</a></td>
+						<td>
+							<%
+								if (order.getPickup() == 1) {
+							%>
+							<a href="ShipmentServlet?orderid=<%=order.getTransactionId()%>&amount=<%=order.getAmount()%>&userid=<%=userId%>&prodid=<%=order.getProductId()%>"
+							   class="btn btn-primary">SHIP NOW</a>
+							<%
+							} else {
+							%>
+							<a href="ShipmentServlet?orderid=<%=order.getTransactionId()%>&amount=<%=order.getAmount()%>&userid=<%=userId%>&prodid=<%=order.getProductId()%>"
+							   class="btn btn-success">PREPARE NOW</a>
+							<%
+								}
+							%>
+						</td>
 					</tr>
 
 					<%

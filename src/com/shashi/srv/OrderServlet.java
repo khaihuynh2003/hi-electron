@@ -26,7 +26,7 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String userName = (String) session.getAttribute("username");
 		String password = (String) session.getAttribute("password");
-		boolean test = false;
+//		boolean test = false;
 
 		if (userName == null || password == null) {
 
@@ -34,8 +34,14 @@ public class OrderServlet extends HttpServlet {
 		}
 
 		double paidAmount = Double.parseDouble(request.getParameter("amount"));
-		String pickUp = request.getParameter("pickUp"); // value = "true" or "false"
-		String status = new OrderServiceImpl().paymentSuccess(userName, paidAmount);
+		String sPickUp = request.getParameter("pickup"); // value = "true" or "false"
+		System.out.println(sPickUp);
+
+		int pickup = (sPickUp.equals("true")) ? 1 : 0;
+		System.out.println(pickup);
+
+		String status = new OrderServiceImpl().paymentSuccess(userName, paidAmount, pickup);
+		System.out.println(status);
 
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html");
