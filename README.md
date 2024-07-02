@@ -37,7 +37,7 @@ Note: The payment page is created only for demo purpose and its not fully integr
 - JSP
 
 3. Database:
-- MySql
+- MySQL
 
 ### ================ Software And Tools Required ================
 - : Git [https://www.youtube.com/watch?v=gv7VPQ4LZ7g]
