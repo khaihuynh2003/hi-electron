@@ -103,13 +103,11 @@ Step 10: Default Username And Password For Admin Is "admin@gmail.com" And "admin
 
 Step 11: The default Username And Password For User Is "guest@gmail.com" And "guest"
 
-## FAQ
+## FAQs
 **Question:1** Unable to Connect to Database?
 
-**Answer:** Please check you have installed the mysql correctly and have updated the correct db details in application.properties file. Also you can try doing maven clean install and force update the project and restart.
+**Answer:** Make sure you have correctly installed MySQL and initialized the dummy database as per step 1 of the setup process. You should also check the database's details in the application.properties file (notably check if your login credentials are correct). Also you can try doing maven clean install and force update the project and restart.
 <hr>
-
-Note:- This is a Sample Project for learning purpose, we have not much considered of web security.
 
 #### Some Screenshots for the project:
 - Home Page
@@ -153,6 +151,6 @@ Note:- This is a Sample Project for learning purpose, we have not much considere
 
 <bold>Thanks a lot,</bold><br/>
                                                                                                         Project Leader<br/>
-                                                                                                         <b>Shashi Raj</b>
+                                                                                                         <b>Huynh Tan Khai</b>
 
 
